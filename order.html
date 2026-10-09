@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="https://ik.imagekit.io/kingstormtech/VC%20services/koko/logo.jpg">
+    <title>Order Online | KOKO HOUSE</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#3B2416',     /* Dark Brown */
+                            darker: '#25160C',   /* Deep Charcoal Brown */
+                            gold: '#F2B705',     /* Warm Gold */
+                            cream: '#FFF5E1',    /* Cream / Off-White */
+                            rust: '#C68A3D',     /* Rust / Ochre */
+                            green: '#1E5B3A'     /* Deep Forest Green */
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                        accent: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FFF5E1;
+            color: #3B2416;
+        }
+
+        .bg-pattern-subtle {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c68a3d' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M30 30L15 0h30L30 30zM0 30l30 15v-30L0 30zm60 0L30 15v30l30-15zM30 30l15 30H15l15-30z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #FFF5E1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #C68A3D;
+            border-radius: 3px;
+        }
+
+        .modal-backdrop {
+            background-color: rgba(37, 22, 12, 0.75);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+
+<body class="bg-brand-cream text-brand-dark antialiased min-h-screen flex flex-col justify-between bg-pattern-subtle custom-scrollbar">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="bg-brand-dark border-b-4 border-brand-gold py-4 px-4 sm:px-8 shadow-xl sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="inline-flex items-center gap-2 text-brand-gold hover:text-white font-bold text-xs sm:text-sm transition-all bg-white/10 px-3.5 py-2 rounded-xl border border-brand-gold/30">
+                <i class="fa-solid fa-arrow-left"></i> Main Site
+            </a>
+            <div class="flex items-center gap-3">
+                <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/logo.jpg" alt="Koko House Logo" class="h-10 sm:h-12 w-auto rounded-xl border border-brand-gold p-0.5 bg-white shadow-md">
+                <div>
+                    <span class="font-heading font-extrabold text-white text-base sm:text-lg block leading-tight">KOKO HOUSE</span>
+                    <span class="text-[10px] text-brand-gold uppercase tracking-wider font-bold block">Online Order Menu</span>
+                </div>
+            </div>
+            <!-- CART QUICK ICON -->
+            <a href="#cart-section" class="bg-brand-gold text-brand-dark px-3.5 py-2 rounded-xl font-extrabold text-xs sm:text-sm flex items-center gap-2 border border-white shadow-md hover:scale-105 transition-all">
+                <i class="fa-solid fa-basket-shopping text-base"></i>
+                <span id="nav-cart-count" class="bg-brand-dark text-brand-gold px-2 py-0.5 rounded-full text-xs">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 py-8 sm:py-10 w-full flex-1 space-y-12">
+
+        <!-- TITLE HERO -->
+        <div class="text-center space-y-2">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/20 border border-brand-gold text-brand-dark text-xs font-extrabold uppercase tracking-widest shadow-sm">
+                Authentic Ghanaian Breakfast
+            </span>
+            <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-brand-dark leading-tight">
+                Select Your Items
+            </h1>
+            <p class="text-xs sm:text-sm text-gray-700 font-medium max-w-lg mx-auto leading-relaxed">
+                Add multiple boxes, porridge bowls, and snacks to your basket. Ideal for solo meals or family orders!
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <!-- LEFT COLUMN: CATEGORIZED MENU ITEMS (7 COLS) -->
+            <div class="lg:col-span-7 space-y-10">
+
+                <!-- CATEGORY 1: BREAKFAST BOXES -->
+                <section class="space-y-4">
+                    <div class="border-b-2 border-brand-gold/40 pb-2 flex items-center justify-between">
+                        <div>
+                            <h2 class="font-heading font-extrabold text-2xl text-brand-dark">Breakfast Boxes</h2>
+                            <p class="text-xs text-brand-rust font-semibold">Complete breakfast packages with porridge, puffs & toppings</p>
+                        </div>
+                        <span class="bg-brand-dark text-brand-gold text-xs font-extrabold px-3 py-1 rounded-full">Package Deals</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                        <!-- Classic Box -->
+                        <div class="bg-white rounded-3xl p-5 border-2 border-brand-gold/40 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-all">
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 bg-brand-cream text-brand-rust border border-brand-rust/20 rounded-md">Solo Meal</span>
+                                    <span class="font-extrabold text-lg text-brand-dark bg-brand-gold/30 px-3 py-0.5 rounded-xl">£5.00</span>
+                                </div>
+                                <h3 class="font-heading font-extrabold text-xl text-brand-dark">Classic Breakfast Box</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">1x 450ml Porridge, 4 Puffs, and 1 Topping.</p>
+                            </div>
+                            <button onclick="openCustomizer('Classic Breakfast Box', 5.00, 1, '1x 450ml Porridge, 4 Puffs, and 1 Topping')" class="w-full bg-brand-dark text-brand-gold py-2.5 rounded-xl font-extrabold text-xs border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all flex items-center justify-center gap-2">
+                                Select Flavor & Add
+                            </button>
+                        </div>
+
+                        <!-- Duo Box -->
+                        <div class="bg-white rounded-3xl p-5 border-2 border-brand-gold/40 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-all">
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 bg-brand-cream text-brand-rust border border-brand-rust/20 rounded-md">2 Persons</span>
+                                    <span class="font-extrabold text-lg text-brand-dark bg-brand-gold/30 px-3 py-0.5 rounded-xl">£9.50</span>
+                                </div>
+                                <h3 class="font-heading font-extrabold text-xl text-brand-dark">Duo Breakfast Box</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">2x 450ml Porridge, 8 Puffs, and 2 Toppings.</p>
+                            </div>
+                            <button onclick="openCustomizer('Duo Breakfast Box', 9.50, 2, '2x 450ml Porridge, 8 Puffs, and 2 Toppings')" class="w-full bg-brand-dark text-brand-gold py-2.5 rounded-xl font-extrabold text-xs border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all flex items-center justify-center gap-2">
+                                Select Flavors & Add
+                            </button>
+                        </div>
+
+                        <!-- Big Box -->
+                        <div class="bg-white rounded-3xl p-5 border-2 border-brand-gold/40 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-all">
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 bg-brand-cream text-brand-rust border border-brand-rust/20 rounded-md">Feast Portion</span>
+                                    <span class="font-extrabold text-lg text-brand-dark bg-brand-gold/30 px-3 py-0.5 rounded-xl">£15.00</span>
+                                </div>
+                                <h3 class="font-heading font-extrabold text-xl text-brand-dark">Big Breakfast Box</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">3x 450ml Porridge, 12 Puffs, and 3 Toppings.</p>
+                            </div>
+                            <button onclick="openCustomizer('Big Breakfast Box', 15.00, 3, '3x 450ml Porridge, 12 Puffs, and 3 Toppings')" class="w-full bg-brand-dark text-brand-gold py-2.5 rounded-xl font-extrabold text-xs border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all flex items-center justify-center gap-2">
+                                Select Flavors & Add
+                            </button>
+                        </div>
+
+                        <!-- Family Box -->
+                        <div class="bg-white rounded-3xl p-5 border-2 border-brand-gold/40 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-all">
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 bg-brand-cream text-brand-rust border border-brand-rust/20 rounded-md">Best Value</span>
+                                    <span class="font-extrabold text-lg text-brand-dark bg-brand-gold/30 px-3 py-0.5 rounded-xl">£20.00</span>
+                                </div>
+                                <h3 class="font-heading font-extrabold text-xl text-brand-dark">Family Breakfast Box</h3>
+                                <p class="text-xs text-gray-600 leading-relaxed">4x 450ml Porridge, 16 Puffs, and 4 Toppings.</p>
+                            </div>
+                            <button onclick="openCustomizer('Family Breakfast Box', 20.00, 4, '4x 450ml Porridge, 16 Puffs, and 4 Toppings')" class="w-full bg-brand-dark text-brand-gold py-2.5 rounded-xl font-extrabold text-xs border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all flex items-center justify-center gap-2">
+                                Select Flavors & Add
+                            </button>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- CATEGORY 2: PUFF BOXES -->
+                <section class="space-y-4">
+                    <div class="border-b-2 border-brand-gold/40 pb-2">
+                        <h2 class="font-heading font-extrabold text-2xl text-brand-dark">Puff Boxes</h2>
+                        <p class="text-xs text-brand-rust font-semibold">Fresh fried sweet dough balls with toppings included</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+
+                        <div class="bg-white p-4 rounded-2xl border border-brand-gold/40 text-center space-y-2 flex flex-col justify-between shadow-sm">
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-dark">4 Puffs Box</h4>
+                                <p class="text-[11px] text-gray-500">4 Puffs + 1 Topping</p>
+                                <p class="font-extrabold text-brand-rust text-base mt-1">£2.50</p>
+                            </div>
+                            <button onclick="addSingleItem('4 Puffs Box', 2.50, '4 Puffs + 1 Topping')" class="bg-brand-dark text-brand-gold text-xs py-2 rounded-xl font-bold border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all">
+                                + Add
+                            </button>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-brand-gold/40 text-center space-y-2 flex flex-col justify-between shadow-sm">
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-dark">6 Puffs Box</h4>
+                                <p class="text-[11px] text-gray-500">6 Puffs + 1 Topping</p>
+                                <p class="font-extrabold text-brand-rust text-base mt-1">£3.50</p>
+                            </div>
+                            <button onclick="addSingleItem('6 Puffs Box', 3.50, '6 Puffs + 1 Topping')" class="bg-brand-dark text-brand-gold text-xs py-2 rounded-xl font-bold border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all">
+                                + Add
+                            </button>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-brand-gold/40 text-center space-y-2 flex flex-col justify-between shadow-sm">
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-dark">8 Puffs Box</h4>
+                                <p class="text-[11px] text-gray-500">8 Puffs + 1 Topping</p>
+                                <p class="font-extrabold text-brand-rust text-base mt-1">£4.50</p>
+                            </div>
+                            <button onclick="addSingleItem('8 Puffs Box', 4.50, '8 Puffs + 1 Topping')" class="bg-brand-dark text-brand-gold text-xs py-2 rounded-xl font-bold border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all">
+                                + Add
+                            </button>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-brand-gold/40 text-center space-y-2 flex flex-col justify-between shadow-sm">
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-dark">12 Puffs Box</h4>
+                                <p class="text-[11px] text-gray-500">12 Puffs + 2 Toppings</p>
+                                <p class="font-extrabold text-brand-rust text-base mt-1">£7.00</p>
+                            </div>
+                            <button onclick="addSingleItem('12 Puffs Box', 7.00, '12 Puffs + 2 Toppings')" class="bg-brand-dark text-brand-gold text-xs py-2 rounded-xl font-bold border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all">
+                                + Add
+                            </button>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- CATEGORY 3: INDIVIDUAL PORRIDGE ITEMS -->
+                <section class="space-y-4">
+                    <div class="border-b-2 border-brand-gold/40 pb-2">
+                        <h2 class="font-heading font-extrabold text-2xl text-brand-dark">Individual Porridge Items</h2>
+                        <p class="text-xs text-brand-rust font-semibold">Single 450ml tubs — £3.00 each</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                        <div class="bg-white p-4 rounded-2xl border border-brand-gold/40 flex items-center justify-between shadow-sm">
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-dark">Millet Porridge</h4>
+                                <p class="text-[11px] text-gray-500">450ml tub · £3.00</p>
+                            </div>
+                            <button onclick="addSingleItem('Millet Porridge', 3.00, '1x 450ml Bowl')" class="bg-brand-dark text-brand-gold px-3 py-2 rounded-xl font-bold text-xs border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all">
+                                + Add
+                            </button>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-brand-gold/40 flex items-center justify-between shadow-sm">
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-dark">Oat Porridge</h4>
+                                <p class="text-[11px] text-gray-500">450ml tub · £3.00</p>
+                            </div>
+                            <button onclick="addSingleItem('Oat Porridge', 3.00, '1x 450ml Bowl')" class="bg-brand-dark text-brand-gold px-3 py-2 rounded-xl font-bold text-xs border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all">
+                                + Add
+                            </button>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-brand-gold/40 flex items-center justify-between shadow-sm">
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-dark">Rice Pudding</h4>
+                                <p class="text-[11px] text-gray-500">450ml tub · £3.00</p>
+                            </div>
+                            <button onclick="addSingleItem('Rice Pudding', 3.00, '1x 450ml Bowl')" class="bg-brand-dark text-brand-gold px-3 py-2 rounded-xl font-bold text-xs border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all">
+                                + Add
+                            </button>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-brand-gold/40 flex items-center justify-between shadow-sm">
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-dark">Tom Brown Porridge</h4>
+                                <p class="text-[11px] text-gray-500">450ml tub · £3.00</p>
+                            </div>
+                            <button onclick="addSingleItem('Tom Brown Porridge', 3.00, '1x 450ml Bowl')" class="bg-brand-dark text-brand-gold px-3 py-2 rounded-xl font-bold text-xs border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all">
+                                + Add
+                            </button>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- RIGHT COLUMN: BASKET & CHECKOUT (5 COLS) -->
+            <div class="lg:col-span-5 space-y-6 sticky top-24" id="cart-section">
+
+                <!-- CART BASKET CARD -->
+                <div class="bg-white rounded-3xl p-6 border-2 border-brand-gold/50 shadow-xl space-y-4">
+                    <div class="flex items-center justify-between border-b border-brand-gold/30 pb-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-basket-shopping text-brand-rust text-xl"></i>
+                            <h3 class="font-heading font-extrabold text-xl text-brand-dark">Your Basket</h3>
+                        </div>
+                        <button onclick="clearCart()" class="text-[11px] font-bold text-red-600 hover:underline">Clear All</button>
+                    </div>
+
+                    <!-- CART ITEM LIST -->
+                    <div id="cart-items-container" class="space-y-3 max-h-60 overflow-y-auto custom-scrollbar pr-1">
+                        <div class="text-center py-8 text-gray-400 text-xs font-semibold">
+                            <i class="fa-solid fa-cart-flatbed text-3xl mb-2 text-brand-gold/40 block"></i>
+                            Your basket is empty.<br>Tap items on the left to add them!
+                        </div>
+                    </div>
+
+                    <!-- TOTAL DISPLAY -->
+                    <div class="pt-3 border-t border-brand-rust/20 flex items-center justify-between">
+                        <span class="font-bold text-sm text-brand-dark">Total Order Amount:</span>
+                        <span id="cart-total" class="font-extrabold text-2xl text-brand-rust">£0.00</span>
+                    </div>
+                </div>
+
+                <!-- DELIVERY DETAILS CARD -->
+                <div class="bg-white rounded-3xl p-6 border-2 border-brand-gold/50 shadow-xl space-y-3">
+                    <h3 class="font-heading font-extrabold text-lg text-brand-dark flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-brand-rust"></i> Delivery Details
+                    </h3>
+                    <label for="delivery-address" class="block text-xs font-semibold text-gray-600">Enter delivery address and any nearby building or landmark:</label>
+                    <textarea id="delivery-address" rows="3" placeholder="e.g. 12 High Street, Mitcham CR4 2AY (Opposite the Pharmacy)..." class="w-full bg-brand-cream border border-brand-rust/30 rounded-xl p-3 text-xs font-medium text-brand-dark focus:border-brand-gold focus:outline-none"></textarea>
+                </div>
+
+                <!-- SUBMIT ACTION CARD -->
+                <div class="bg-brand-dark text-brand-cream p-5 rounded-3xl border-2 border-brand-gold shadow-xl space-y-3">
+                    <div class="text-xs font-mono bg-brand-darker/60 p-3 rounded-xl border border-brand-gold/20 max-h-40 overflow-y-auto custom-scrollbar" id="msg-preview">
+                        Your WhatsApp order message will format here automatically...
+                    </div>
+
+                    <button id="wa-btn" class="w-full bg-brand-green text-white py-3.5 rounded-2xl font-extrabold text-sm shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> SEND ORDER VIA WHATSAPP
+                    </button>
+                    <a href="tel:+447927536062" class="w-full bg-brand-gold text-brand-dark py-3.5 rounded-2xl font-extrabold text-xs hover:bg-white transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone"></i> CALL DIRECTLY (+44 7927 536062)
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- CUSTOMIZER MODAL FOR BREAKFAST BOXES (PORRIDGE FLAVORS ONLY) -->
+    <div id="customizer-modal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 border-2 border-brand-gold shadow-2xl space-y-5 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-brand-dark hover:text-red-600 text-lg p-1">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+
+            <div>
+                <h3 id="modal-box-title" class="font-heading font-extrabold text-2xl text-brand-dark">Customize Box</h3>
+                <p id="modal-box-sub" class="text-xs text-brand-rust font-semibold mt-0.5">Select porridge flavors</p>
+            </div>
+
+            <!-- PORRIDGE SELECTIONS ONLY -->
+            <div class="space-y-3">
+                <label class="block text-xs font-bold text-brand-dark uppercase tracking-wider">Porridge Flavors</label>
+                <div id="modal-porridge-options" class="space-y-2"></div>
+            </div>
+
+            <button id="modal-add-btn" class="w-full bg-brand-dark text-brand-gold py-3 rounded-xl font-extrabold text-sm border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all">
+                Add to Basket
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-brand-cream/70 text-xs py-6 text-center border-t-4 border-brand-gold">
+        &copy; 2026 KOKO HOUSE · Mitcham Town Centre, London · +44 7927 536062
+    </footer>
+
+    <!-- CART APPLICATION SCRIPT -->
+    <script>
+        const WA_PHONE = '447927536062';
+        let cart = [];
+
+        // 1. ADD SINGLE ITEM / PUFF BOX DIRECTLY
+        function addSingleItem(name, price, pkgSpecs) {
+            const existing = cart.find(i => i.name === name && i.pkgSpecs === pkgSpecs);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name: name, price: price, qty: 1, pkgSpecs: pkgSpecs || '', porridgeFlavors: '' });
+            }
+            updateCartUI();
+        }
+
+        // 2. OPEN BREAKFAST BOX CUSTOMIZER (PORRIDGE FLAVORS ONLY)
+        function openCustomizer(title, price, porridgeQty, pkgSpecs) {
+            document.getElementById('modal-box-title').textContent = title;
+            document.getElementById('modal-box-sub').textContent = `Select ${porridgeQty} porridge bowl flavor(s)`;
+            
+            const pContainer = document.getElementById('modal-porridge-options');
+            pContainer.innerHTML = '';
+
+            const options = ['Millet Porridge', 'Oat Porridge', 'Rice Pudding', 'Tom Brown Porridge'];
+
+            for (let i = 1; i <= porridgeQty; i++) {
+                let selectHtml = `<div class="flex items-center gap-2"><span class="text-xs font-bold text-gray-500 w-16">Bowl #${i}:</span><select class="box-porridge-select w-full bg-brand-cream border border-brand-rust/30 rounded-lg p-2 text-xs font-bold text-brand-dark">`;
+                options.forEach(opt => {
+                    selectHtml += `<option value="${opt}">${opt}</option>`;
+                });
+                selectHtml += `</select></div>`;
+                pContainer.innerHTML += selectHtml;
+            }
+
+            document.getElementById('modal-add-btn').onclick = function() {
+                const porridges = [];
+                document.querySelectorAll('.box-porridge-select').forEach(s => porridges.push(s.value));
+                
+                cart.push({
+                    name: title,
+                    price: price,
+                    qty: 1,
+                    pkgSpecs: pkgSpecs,
+                    porridgeFlavors: porridges.join(', ')
+                });
+
+                closeModal();
+                updateCartUI();
+            };
+
+            document.getElementById('customizer-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('customizer-modal').classList.add('hidden');
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartUI();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        // 3. UPDATE CART DISPLAY
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const navCount = document.getElementById('nav-cart-count');
+            const totalEl = document.getElementById('cart-total');
+
+            let total = 0;
+            let itemCount = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-gray-400 text-xs font-semibold">
+                        <i class="fa-solid fa-cart-flatbed text-3xl mb-2 text-brand-gold/40 block"></i>
+                        Your basket is empty.<br>Tap items on the left to add them!
+                    </div>`;
+                totalEl.textContent = '£0.00';
+                navCount.textContent = '0';
+                document.getElementById('msg-preview').textContent = 'Your WhatsApp order message will format here automatically...';
+                return;
+            }
+
+            container.innerHTML = '';
+            cart.forEach((item, idx) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                itemCount += item.qty;
+
+                let descText = item.pkgSpecs;
+                if (item.porridgeFlavors) {
+                    descText += ` | Flavor(s): ${item.porridgeFlavors}`;
+                }
+
+                container.innerHTML += `
+                    <div class="bg-brand-cream p-3 rounded-xl border border-brand-rust/20 flex flex-col gap-1">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-xs text-brand-dark">${item.name}</span>
+                            <span class="font-extrabold text-xs text-brand-rust">£${itemTotal.toFixed(2)}</span>
+                        </div>
+                        <p class="text-[10px] text-gray-500 font-medium">${descText}</p>
+                        <div class="flex items-center justify-between pt-1">
+                            <div class="flex items-center gap-2">
+                                <button onclick="changeQty(${idx}, -1)" class="w-5 h-5 bg-brand-dark text-brand-gold rounded font-bold text-xs">-</button>
+                                <span class="text-xs font-bold">${item.qty}</span>
+                                <button onclick="changeQty(${idx}, 1)" class="w-5 h-5 bg-brand-dark text-brand-gold rounded font-bold text-xs">+</button>
+                            </div>
+                            <button onclick="removeItem(${idx})" class="text-[10px] text-red-600 font-bold hover:underline">Remove</button>
+                        </div>
+                    </div>`;
+            });
+
+            totalEl.textContent = `£${total.toFixed(2)}`;
+            navCount.textContent = itemCount;
+            document.getElementById('msg-preview').textContent = buildMessage(total);
+        }
+
+        // 4. BUILD WHATSAPP MESSAGE
+        function buildMessage(total) {
+            if (cart.length === 0) return '';
+
+            let itemsStr = '';
+            cart.forEach(i => {
+                itemsStr += `- ${i.name} x${i.qty} (£${(i.price * i.qty).toFixed(2)})\n`;
+                if (i.pkgSpecs) {
+                    itemsStr += `  Includes: ${i.pkgSpecs}\n`;
+                }
+                if (i.porridgeFlavors) {
+                    itemsStr += `  Porridge Flavor(s): ${i.porridgeFlavors}\n`;
+                }
+            });
+
+            const address = document.getElementById('delivery-address').value.trim() || 'Not specified';
+
+            return `Hi Koko House!\n\nI would like to place an order:\n\n` +
+                `${itemsStr}\n` +
+                `Total Order Amount: £${total.toFixed(2)}\n\n` +
+                `Delivery Address & Landmarks: ${address}\n\n` +
+                `Thanks for your services`;
+        }
+
+        document.getElementById('delivery-address').addEventListener('input', () => {
+            let total = 0;
+            cart.forEach(i => total += (i.price * i.qty));
+            document.getElementById('msg-preview').textContent = buildMessage(total);
+        });
+
+        document.getElementById('wa-btn').addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Please add at least one item to your basket first!');
+                return;
+            }
+            let total = 0;
+            cart.forEach(i => total += (i.price * i.qty));
+            const text = encodeURIComponent(buildMessage(total));
+            window.open(`https://wa.me/${WA_PHONE}?text=${text}`, '_blank');
+        });
+    </script>
+</body>
+
+</html>

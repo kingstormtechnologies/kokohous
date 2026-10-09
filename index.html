@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="https://ik.imagekit.io/kingstormtech/VC%20services/koko/logo.jpg">
+    <title>KOKO HOUSE | Authentic Ghanaian Breakfast & More</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#3B2416',     /* Dark Brown */
+                            gold: '#F2B705',     /* Warm Gold */
+                            cream: '#FFF5E1',    /* Cream / Off-White */
+                            rust: '#C68A3D',     /* Rust / Ochre */
+                            green: '#1E5B3A',    /* Deep Forest Green */
+                            surface: '#FAF0DB'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                        accent: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FFF5E1;
+            color: #3B2416;
+        }
+
+        .font-accent {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .pattern-banner {
+            height: 28px;
+            background-color: #3B2416;
+            background-image: url("https://ik.imagekit.io/kingstormtech/VC%20services/koko/strip.png");
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            background-position: center;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #FFF5E1;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #C68A3D;
+            border-radius: 4px;
+        }
+
+        .bg-pattern-subtle {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c68a3d' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M30 30L15 0h30L30 30zM0 30l30 15v-30L0 30zm60 0L30 15v30l30-15zM30 30l15 30H15l15-30z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body class="bg-brand-cream text-brand-dark antialiased custom-scrollbar selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-40 bg-brand-cream/95 backdrop-blur-md border-b border-brand-rust/20 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- LOGO -->
+                <a href="#home" class="flex items-center gap-3">
+                    <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/logo.jpg" alt="Koko House Logo"
+                        class="h-14 w-auto rounded-lg object-contain shadow-sm border border-brand-gold/30">
+                </a>
+
+                <!-- DESKTOP NAV LINKS -->
+                <div class="hidden md:flex items-center space-x-6 text-xs lg:text-sm font-bold uppercase tracking-wider">
+                    <a href="#home" class="hover:text-brand-rust transition-colors text-brand-dark py-1 border-b-2 border-transparent hover:border-brand-rust">Home</a>
+                    <a href="#menu" class="hover:text-brand-rust transition-colors text-brand-dark py-1 border-b-2 border-transparent hover:border-brand-rust">Offerings Showcase</a>
+                    <a href="#usps" class="hover:text-brand-rust transition-colors text-brand-dark py-1 border-b-2 border-transparent hover:border-brand-rust">Why Koko House</a>
+                    <a href="#story" class="hover:text-brand-rust transition-colors text-brand-dark py-1 border-b-2 border-transparent hover:border-brand-rust">Our Story</a>
+                    <a href="#values" class="hover:text-brand-rust transition-colors text-brand-dark py-1 border-b-2 border-transparent hover:border-brand-rust">Our Values</a>
+                    <a href="#contact" class="hover:text-brand-rust transition-colors text-brand-dark py-1 border-b-2 border-transparent hover:border-brand-rust">Location</a>
+                    
+                    <!-- ORDER NOW BUTTON (TOP NAVIGATION) -->
+                    <a href="order.html" class="bg-brand-dark text-brand-gold px-4 py-2 rounded-xl font-extrabold border border-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping"></i> ORDER NOW
+                    </a>
+                </div>
+
+                <!-- MOBILE HAMBURGER BUTTON -->
+                <div class="md:hidden flex items-center gap-2">
+                    <a href="order.html" class="bg-brand-dark text-brand-gold px-3 py-1.5 rounded-lg text-xs font-bold border border-brand-gold flex items-center gap-1">
+                        <i class="fa-solid fa-basket-shopping"></i> ORDER
+                    </a>
+                    <button id="mobile-menu-btn" class="text-brand-dark p-2 text-2xl focus:outline-none" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DROPDOWN -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-cream border-b border-brand-rust/20 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="mobile-link block py-2 px-3 rounded-lg text-base font-semibold hover:bg-brand-gold/20">Home</a>
+            <a href="#menu" class="mobile-link block py-2 px-3 rounded-lg text-base font-semibold hover:bg-brand-gold/20">Offerings Showcase</a>
+            <a href="#usps" class="mobile-link block py-2 px-3 rounded-lg text-base font-semibold hover:bg-brand-gold/20">Why Koko House</a>
+            <a href="#story" class="mobile-link block py-2 px-3 rounded-lg text-base font-semibold hover:bg-brand-gold/20">Our Story</a>
+            <a href="#values" class="mobile-link block py-2 px-3 rounded-lg text-base font-semibold hover:bg-brand-gold/20">Our Values</a>
+            <a href="#contact" class="mobile-link block py-2 px-3 rounded-lg text-base font-semibold hover:bg-brand-gold/20">Location</a>
+            <a href="order.html" class="block w-full text-center bg-brand-dark text-brand-gold py-2.5 rounded-xl font-bold border border-brand-gold">
+                <i class="fa-solid fa-basket-shopping mr-1"></i> ORDER ONLINE NOW
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER INTRO -->
+    <section id="home" class="relative bg-pattern-subtle pt-10 pb-6 border-b border-brand-rust/10">
+        <div class="max-w-5xl mx-auto px-4 text-center space-y-4">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/20 border border-brand-gold text-brand-dark text-xs sm:text-sm font-bold uppercase tracking-wide">
+                <i class="fa-solid fa-location-dot text-brand-rust"></i> Mitcham Town Centre, London
+            </div>
+
+            <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-brand-dark leading-tight">
+                Authentic Ghanaian Breakfast & More
+            </h1>
+
+            <!-- EXACT MANDATORY TEXT -->
+            <p class="text-base sm:text-lg text-brand-dark/90 max-w-3xl mx-auto leading-relaxed font-medium bg-white/60 p-4 rounded-2xl border border-brand-gold/30 shadow-sm">
+                Experience the genuine feel of traditional porridge and fresh breakfast delicacies in London. Serving homemade Hausa Koko, Tom Brown, Oats, Rice Pudding, freshly fried Puff Puff, Koose, and delicious toppings.
+            </p>
+
+            <!-- ORDER NOW BUTTON (MIDDLE HERO SECTION) -->
+            <div class="pt-2">
+                <a href="order.html" class="inline-flex items-center gap-3 bg-brand-dark text-brand-gold px-8 py-3.5 rounded-2xl font-extrabold text-base border-2 border-brand-gold shadow-xl hover:bg-brand-gold hover:text-brand-dark transition-all hover:scale-105">
+                    <i class="fa-solid fa-basket-shopping text-lg"></i> ORDER ONLINE NOW
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANDATORY IMMEDIATELY FOLLOWING SECTION: ITEMS SERVED & SHOWCASE -->
+    <section id="menu" class="py-12 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- SECTION HEADER -->
+            <div class="text-center max-w-3xl mx-auto space-y-2 mb-10">
+                <span class="text-brand-rust font-accent text-3xl sm:text-4xl block">Traditional Offerings</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark">
+                    Our Authentic Breakfast Showcase
+                </h2>
+                <p class="text-brand-dark/80 text-sm sm:text-base font-medium">
+                    Every dish is prepared fresh using traditional recipes, natural spices, and no preservatives.
+                </p>
+
+                <!-- CATEGORY NAVIGATION BUTTONS -->
+                <div class="flex flex-wrap items-center justify-center gap-3 pt-6 relative" id="menu-filters">
+                    
+                    <!-- ALL OFFERINGS -->
+                    <button id="btn-all" onclick="selectFilter('all')" class="menu-filter-btn active bg-brand-dark text-brand-gold px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase transition-all shadow-md">
+                        ALL OFFERINGS
+                    </button>
+
+                    <!-- PORRIDGE DROPDOWN MENU BUTTON -->
+                    <div class="relative inline-block text-left" id="porridge-dropdown-container">
+                        <button id="btn-porridge" onclick="togglePorridgeDropdown(event)" class="menu-filter-btn bg-brand-cream hover:bg-brand-gold/30 text-brand-dark border border-brand-rust/30 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase transition-all flex items-center gap-2">
+                            <span>PORRIDGE</span>
+                            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-200" id="porridge-arrow"></i>
+                        </button>
+
+                        <!-- DROPDOWN MENU FOR PORRIDGE CATEGORIES -->
+                        <div id="porridge-menu" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-2xl bg-brand-dark border-2 border-brand-gold shadow-2xl z-50 overflow-hidden py-2 text-left">
+                            <div class="px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand-gold/70 border-b border-brand-gold/20 mb-1">
+                                Porridge Varieties
+                            </div>
+                            <button onclick="selectFilter('rice-pudding', 'Rice Pudding')" class="sub-filter-btn w-full text-left px-4 py-2 text-xs font-semibold text-brand-cream hover:bg-brand-gold hover:text-brand-dark transition-colors flex items-center justify-between">
+                                <span>Rice Pudding</span>
+                                <i class="fa-solid fa-angle-right text-[10px] opacity-60"></i>
+                            </button>
+                            <button onclick="selectFilter('hausa-koko', 'Hausa Koko')" class="sub-filter-btn w-full text-left px-4 py-2 text-xs font-semibold text-brand-cream hover:bg-brand-gold hover:text-brand-dark transition-colors flex items-center justify-between">
+                                <span>Hausa Koko</span>
+                                <i class="fa-solid fa-angle-right text-[10px] opacity-60"></i>
+                            </button>
+                            <button onclick="selectFilter('oats', 'Oats')" class="sub-filter-btn w-full text-left px-4 py-2 text-xs font-semibold text-brand-cream hover:bg-brand-gold hover:text-brand-dark transition-colors flex items-center justify-between">
+                                <span>Oats</span>
+                                <i class="fa-solid fa-angle-right text-[10px] opacity-60"></i>
+                            </button>
+                            <button onclick="selectFilter('tom-brown', 'Tom Brown')" class="sub-filter-btn w-full text-left px-4 py-2 text-xs font-semibold text-brand-cream hover:bg-brand-gold hover:text-brand-dark transition-colors flex items-center justify-between">
+                                <span>Tom Brown</span>
+                                <i class="fa-solid fa-angle-right text-[10px] opacity-60"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- PUFF PUFF -->
+                    <button id="btn-puffpuff" onclick="selectFilter('puffpuff')" class="menu-filter-btn bg-brand-cream hover:bg-brand-gold/30 text-brand-dark border border-brand-rust/30 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase transition-all">
+                        PUFF PUFF
+                    </button>
+
+                    <!-- KOOSE -->
+                    <button id="btn-koose" onclick="selectFilter('koose')" class="menu-filter-btn bg-brand-cream hover:bg-brand-gold/30 text-brand-dark border border-brand-rust/30 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase transition-all">
+                        KOOSE
+                    </button>
+
+                    <!-- TOPPINGS -->
+                    <button id="btn-toppings" onclick="selectFilter('toppings')" class="menu-filter-btn bg-brand-cream hover:bg-brand-gold/30 text-brand-dark border border-brand-rust/30 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase transition-all">
+                        TOPPINGS
+                    </button>
+                </div>
+
+                <!-- Active Subcategory Indicator Badge (When Porridge items selected) -->
+                <div id="active-category-badge" class="hidden pt-3">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-gold/20 text-brand-dark text-xs font-bold border border-brand-gold">
+                        <span>Showing: <strong id="current-filter-label" class="text-brand-rust uppercase">Porridge</strong></span>
+                        <button onclick="selectFilter('all')" class="hover:text-red-600 ml-1"><i class="fa-solid fa-circle-xmark"></i></button>
+                    </span>
+                </div>
+            </div>
+
+            <!-- FOOD IMAGES SHOWCASE GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-grid">
+
+                 <!-- 3. PORRIDGE: HAUSA KOKO -->
+                <div class="menu-card hausa-koko porridge bg-brand-cream rounded-3xl overflow-hidden border-2 border-brand-gold/40 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/Housa%20Kooka%201.jpg" alt="Hausa Koko" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-dark mb-1">Authentic Hausa Koko</h3>
+                            <p class="text-xs text-brand-rust font-bold uppercase tracking-wider mb-2">Spiced Millet Porridge</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Traditional fermented millet porridge, naturally spiced with ginger, cloves, and Negro pepper for an iconic Ghanaian breakfast.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-rust/20 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-green"><i class="fa-solid fa-wheat-awn mr-1"></i> Fresh Grains</span>
+                            <span class="text-xs font-bold text-brand-dark uppercase bg-brand-gold/30 px-2.5 py-1 rounded-md">Hausa Koko</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card hausa-koko porridge bg-brand-cream rounded-3xl overflow-hidden border-2 border-brand-gold/40 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/hausa%20koko%202.jpeg" alt="Hausa Koko" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                       
+                       
+                         <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-dark mb-1">Delicious Hausa Koko</h3>
+                            <p class="text-xs text-brand-rust font-bold uppercase tracking-wider mb-2">Spiced Millet Porridge</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Porridge ich in natural spices with ginger, cloves, and Negro pepper.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-rust/20 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-green"><i class="fa-solid fa-wheat-awn mr-1"></i> Fresh Grains</span>
+                            <span class="text-xs font-bold text-brand-dark uppercase bg-brand-gold/30 px-2.5 py-1 rounded-md">Hausa Koko</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1. PORRIDGE: RICE PUDDING (IMAGE 1) -->
+                <div class="menu-card rice-pudding porridge bg-brand-cream rounded-3xl overflow-hidden border-2 border-brand-gold/40 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/rice-pudding1.jpg" alt="Rice Pudding" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-dark mb-1">Rice Pudding</h3>
+                            <p class="text-xs text-brand-rust font-bold uppercase tracking-wider mb-2">Creamy Rice Porridge</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Slow-cooked tender rice grains combined with reach milk and delicate natural spices for a comforting morning meal.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-rust/20 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-green"><i class="fa-solid fa-spoon mr-1"></i> Smooth & Rich</span>
+                            <span class="text-xs font-bold text-brand-dark uppercase bg-brand-gold/30 px-2.5 py-1 rounded-md">Rice Pudding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. PORRIDGE: OATS -->
+                <div class="menu-card oats porridge bg-brand-cream rounded-3xl overflow-hidden border-2 border-brand-gold/40 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/Tom-brown1%20(1).jpg" alt="Wholesome Oats Porridge" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-dark mb-1">Wholesome Spiced Oats</h3>
+                            <p class="text-xs text-brand-rust font-bold uppercase tracking-wider mb-2">Creamy Rolled Oats</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Velvety cooked oats infused with subtle warm traditional spices, served piping fresh with rich milk.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-rust/20 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-rust"><i class="fa-solid fa-bowl-food mr-1"></i> Hearty Morning Meal</span>
+                            <span class="text-xs font-bold text-brand-dark uppercase bg-brand-gold/30 px-2.5 py-1 rounded-md">Oats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. PORRIDGE: TOM BROWN -->
+                <div class="menu-card tom-brown porridge bg-brand-cream rounded-3xl overflow-hidden border-2 border-brand-gold/40 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/Tom%20Brown%203.jpg" alt="Tom Brown Porridge" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-dark mb-1">Nourishing Tom Brown</h3>
+                            <p class="text-xs text-brand-rust font-bold uppercase tracking-wider mb-2">Roasted Cereal Blend</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Rich and nutty multi-grain porridge made from roasted corn, millet, and soy beans, blended to velvety perfection.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-rust/20 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-green"><i class="fa-solid fa-seedling mr-1"></i> Multi-Grain Power</span>
+                            <span class="text-xs font-bold text-brand-dark uppercase bg-brand-gold/30 px-2.5 py-1 rounded-md">Tom Brown</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. PUFF PUFF (ITEM 1) -->
+                <div class="menu-card puffpuff bg-brand-cream rounded-3xl overflow-hidden border-2 border-brand-gold/40 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/puff-puff1.jpg" alt="Fresh Golden Puff Puff" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-dark mb-1">Fresh Golden Puff Puff</h3>
+                            <p class="text-xs text-brand-rust font-bold uppercase tracking-wider mb-2">Sweet Dough Balls</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Soft, pillowy, sweet fried dough balls cooked fresh to golden perfection on site.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-rust/20 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-dark"><i class="fa-solid fa-cookie mr-1"></i> Soft & Fluffy</span>
+                            <span class="text-xs font-bold text-brand-dark uppercase bg-brand-gold/30 px-2.5 py-1 rounded-md">Puff Puff</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. PUFF PUFF (ITEM 2) -->
+                <div class="menu-card puffpuff bg-brand-cream rounded-3xl overflow-hidden border-2 border-brand-gold/40 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/puff-puff2.jpg" alt="Warm Puff Puff Portion" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-dark mb-1">Warm Puff Puff Delights</h3>
+                            <p class="text-xs text-brand-rust font-bold uppercase tracking-wider mb-2">Street Food Favorite</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Warm, perfectly rounded sweet puff puff, best enjoyed hot alongside your morning Koko or porridge.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-rust/20 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-green"><i class="fa-solid fa-check mr-1"></i> Fried On-Site</span>
+                            <span class="text-xs font-bold text-brand-dark uppercase bg-brand-gold/30 px-2.5 py-1 rounded-md">Puff Puff</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. KOOSE (ITEM 1) -->
+                <div class="menu-card koose bg-brand-cream rounded-3xl overflow-hidden border-2 border-brand-gold/40 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/Koosa%201.jpg" alt="Golden Crispy Koose" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-dark mb-1">Golden Crispy Koose</h3>
+                            <p class="text-xs text-brand-rust font-bold uppercase tracking-wider mb-2">Savory Bean Cakes</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Deliciously spiced black-eyed pea fritters fried to golden crispy perfection on the outside and soft inside.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-rust/20 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-dark"><i class="fa-solid fa-fire mr-1"></i> Freshly Fried</span>
+                            <span class="text-xs font-bold text-brand-dark uppercase bg-brand-gold/30 px-2.5 py-1 rounded-md">Koose</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. TOPPINGS (ITEM 1) -->
+                <div class="menu-card toppings bg-brand-cream rounded-3xl overflow-hidden border-2 border-brand-gold/40 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/toppings1.jpg" alt="Roasted Peanuts & Milk" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-dark mb-1">Roasted Peanuts & Milk</h3>
+                            <p class="text-xs text-brand-rust font-bold uppercase tracking-wider mb-2">Crunchy & Sweet Sides</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Elevate your porridge bowl with crunchy roasted groundnuts, creamy evaporated milk, and fine sugar.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-rust/20 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-green"><i class="fa-solid fa-layer-group mr-1"></i> Custom Add-on</span>
+                            <span class="text-xs font-bold text-brand-dark uppercase bg-brand-gold/30 px-2.5 py-1 rounded-md">Toppings</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. TOPPINGS (ITEM 2) -->
+                <div class="menu-card toppings bg-brand-cream rounded-3xl overflow-hidden border-2 border-brand-gold/40 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/toppings2.jpg" alt="Variety Topping Station" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-dark mb-1">Variety Topping Station</h3>
+                            <p class="text-xs text-brand-rust font-bold uppercase tracking-wider mb-2">Full Customization</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                A rich assortment of delicious toppings, drizzles, and sides to tailor your morning meal exactly to your taste.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-brand-rust/20 flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-dark"><i class="fa-solid fa-utensils mr-1"></i> Delicious Mix</span>
+                            <span class="text-xs font-bold text-brand-dark uppercase bg-brand-gold/30 px-2.5 py-1 rounded-md">Toppings</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NATURAL SPICES & FRESHNESS VISUAL DISPLAY -->
+    <section class="py-12 bg-pattern-subtle border-y border-brand-rust/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-dark p-6 sm:p-8 rounded-3xl shadow-2xl border-4 border-brand-gold text-brand-cream space-y-6">
+                <div class="text-center space-y-1 border-b border-brand-gold/30 pb-4">
+                    <span class="font-accent text-3xl text-brand-gold">Fresh & Authentic</span>
+                    <h3 class="font-heading font-extrabold text-xl uppercase tracking-wider text-white">Traditional Spices & Ingredients</h3>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                    <div class="bg-brand-cream/10 p-3 rounded-2xl border border-brand-gold/30 text-center flex flex-col items-center justify-between space-y-2">
+                        <div class="w-16 h-16 rounded-xl overflow-hidden border border-brand-gold/40 flex-shrink-0">
+                            <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/spaice%201.jpg" alt="Fresh Ginger" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-cream/10 p-3 rounded-2xl border border-brand-gold/30 text-center flex flex-col items-center justify-between space-y-2">
+                        <div class="w-16 h-16 rounded-xl overflow-hidden border border-brand-gold/40 flex-shrink-0">
+                            <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/spaice%205.jpg" alt="Aromatic Cloves" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-cream/10 p-3 rounded-2xl border border-brand-gold/30 text-center flex flex-col items-center justify-between space-y-2">
+                        <div class="w-16 h-16 rounded-xl overflow-hidden border border-brand-gold/40 flex-shrink-0">
+                            <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/spaice%204.jpg" alt="Negro Pepper" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-cream/10 p-3 rounded-2xl border border-brand-gold/30 text-center flex flex-col items-center justify-between space-y-2">
+                        <div class="w-16 h-16 rounded-xl overflow-hidden border border-brand-gold/40 flex-shrink-0">
+                            <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/spaice%202.jpg" alt="Millet Grains" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-cream/10 p-3 rounded-2xl border border-brand-gold/30 text-center flex flex-col items-center justify-between space-y-2 col-span-2 sm:col-span-1">
+                        <div class="w-16 h-16 rounded-xl overflow-hidden border border-brand-gold/40 flex-shrink-0">
+                            <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/spaice%203.jpg" alt="Red Peppercorn" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-gold/20 p-3 rounded-2xl border border-brand-gold flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-center">
+                    <i class="fa-solid fa-shield-halved text-brand-gold text-base"></i>
+                    <span>100% NO PRESERVATIVES &bull; NATURAL SPICES ONLY</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USPS SECTION -->
+    <section id="usps" class="py-16 bg-white relative border-b border-brand-rust/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+                <span class="text-brand-rust font-bold uppercase tracking-widest text-xs">Why Choose Koko House</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark">Our Unique Selling Points</h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto rounded-full mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-brand-cream p-6 rounded-2xl border border-brand-rust/20 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+                    <div class="w-12 h-12 bg-brand-dark text-brand-gold rounded-xl flex items-center justify-center text-xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-dark mb-1">No Preservatives</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Pure, natural ingredients served fresh with zero artificial additives or chemicals.</p>
+                </div>
+
+                <div class="bg-brand-cream p-6 rounded-2xl border border-brand-rust/20 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+                    <div class="w-12 h-12 bg-brand-rust text-white rounded-xl flex items-center justify-center text-xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-pepper-hot"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-dark mb-1">Natural Spices</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Infused with ginger, cloves, and traditional spices for genuine West African flavor.</p>
+                </div>
+
+                <div class="bg-brand-cream p-6 rounded-2xl border border-brand-rust/20 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+                    <div class="w-12 h-12 bg-brand-green text-white rounded-xl flex items-center justify-center text-xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-dark mb-1">Home Made</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Prepared with love, dedication, and traditional family recipe standards.</p>
+                </div>
+
+                <div class="bg-brand-cream p-6 rounded-2xl border border-brand-rust/20 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+                    <div class="w-12 h-12 bg-brand-gold text-brand-dark rounded-xl flex items-center justify-center text-xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-dark mb-1">Authentic Experience</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Capturing the lively, nostalgic feel of morning food markets in West Africa.</p>
+                </div>
+
+                <div class="bg-brand-cream p-6 rounded-2xl border border-brand-rust/20 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+                    <div class="w-12 h-12 bg-brand-gold text-brand-dark rounded-xl flex items-center justify-center text-xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-dark mb-1">Guten Free Porridge</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">A hearty, nutritious porridge made with free-range ingredients.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BRAND STORY SECTION -->
+    <section id="story" class="py-16 lg:py-20 bg-brand-cream relative bg-pattern-subtle">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-5">
+                    <div class="bg-white p-6 rounded-3xl border-2 border-brand-gold shadow-xl space-y-6">
+                        <div class="text-center pb-4 border-b border-brand-rust/20">
+                            <h3 class="font-heading font-bold text-2xl text-brand-dark">The Koko House Heritage</h3>
+                            <p class="text-xs text-brand-rust font-semibold uppercase tracking-widest mt-1">Culture & Craftsmanship</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="overflow-hidden rounded-2xl border border-brand-gold shadow-sm">
+                                <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/tom-brown2.jpg" alt="Traditional Breakfast" class="w-full h-36 object-cover">
+                            </div>
+                            <div class="overflow-hidden rounded-2xl border border-brand-gold shadow-sm">
+                                <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/puff-puff1.jpg" alt="Puff Puff Snacks" class="w-full h-36 object-cover">
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-dark text-white p-5 rounded-2xl flex items-center gap-4">
+                            <div class="text-3xl text-brand-gold"><i class="fa-solid fa-heart"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-gold uppercase">Made Fresh Daily</h4>
+                                <p class="text-xs text-brand-cream/80 mt-0.5">Prepared fresh with natural spices, love, and traditional warmth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-block px-3 py-1 bg-brand-green/10 text-brand-green border border-brand-green/20 rounded-full text-xs font-bold uppercase tracking-wider">
+                        Brand Story
+                    </div>
+
+                    <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-dark leading-tight">
+                        African Street Breakfast &mdash; Serving Culture, Memories & Love
+                    </h2>
+
+                    <div class="space-y-4 text-brand-dark/85 text-base sm:text-lg leading-relaxed">
+                        <p class="font-medium text-brand-dark">
+                            <strong>Koko House</strong> brings you the rich, authentic flavours of West Africa in every bowl and bite.
+                        </p>
+                        <p>
+                            From creamy, spiced <em>Hausa Koko</em> <em>Rice Pudding</em> to nourishing <em>Tom Brown</em>, wholesome oats, fresh bread, and delicious <em>Puff Puff & Koose</em> with mouthwatering toppings, we serve more than food &mdash; we serve memories, culture, and love.
+                        </p>
+                        <p class="bg-white p-4 border-l-4 border-brand-gold italic rounded-r-xl text-brand-dark font-medium shadow-sm">
+                            "Made fresh. Made with care. Made for you."
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MIDDLE STRIP -->
+    <div class="pattern-banner w-full"></div>
+
+    <!-- OUR VALUES SECTION -->
+    <section id="values" class="py-16 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
+                <span class="text-brand-rust font-bold uppercase tracking-widest text-xs">What Drives Us</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark">Our Values</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="bg-brand-cream p-6 rounded-2xl border border-brand-rust/20 shadow-sm text-center">
+                    <div class="w-14 h-14 mx-auto bg-brand-dark text-brand-gold rounded-2xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-dark mb-1">AUTHENTIC</h3>
+                    <p class="text-brand-rust font-accent text-lg mb-2">True to our roots</p>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Authentic West African recipes prepared traditional style without preservatives.
+                    </p>
+                </div>
+
+                <div class="bg-brand-cream p-6 rounded-2xl border border-brand-rust/20 shadow-sm text-center">
+                    <div class="w-14 h-14 mx-auto bg-brand-rust text-white rounded-2xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-dark mb-1">QUALITY</h3>
+                    <p class="text-brand-rust font-accent text-lg mb-2">Best ingredients, best taste</p>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Fresh grains, natural spices, and premium toppings in every serving.
+                    </p>
+                </div>
+
+                <div class="bg-brand-cream p-6 rounded-2xl border border-brand-rust/20 shadow-sm text-center">
+                    <div class="w-14 h-14 mx-auto bg-brand-green text-white rounded-2xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-dark mb-1">COMMUNITY</h3>
+                    <p class="text-brand-rust font-accent text-lg mb-2">Bringing people together</p>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Creating a warm meeting point for everyone who loves traditional West African breakfast.
+                    </p>
+                </div>
+
+                <div class="bg-brand-cream p-6 rounded-2xl border border-brand-rust/20 shadow-sm text-center">
+                    <div class="w-14 h-14 mx-auto bg-brand-gold text-brand-dark rounded-2xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-dark mb-1">PASSION</h3>
+                    <p class="text-brand-rust font-accent text-lg mb-2">We love what we do</p>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Every bowl and puff puff is prepared with genuine love and Ghanaian hospitality.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & SCHEDULE SECTION -->
+    <section id="contact" class="py-16 bg-brand-cream relative bg-pattern-subtle">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Business Info Card -->
+                <div class="lg:col-span-5 bg-brand-dark text-white p-8 sm:p-10 rounded-3xl shadow-2xl border-2 border-brand-gold space-y-6">
+                    <div>
+                        <span class="text-brand-gold font-accent text-3xl block">Visit Us</span>
+                        <h2 class="font-heading text-3xl font-extrabold text-white mt-1">Location Info</h2>
+                    </div>
+
+                    <div class="space-y-5 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-gold/20 border border-brand-gold flex items-center justify-center text-brand-gold flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-brand-gold uppercase font-bold tracking-wider">Location</h4>
+                                <p class="text-base text-brand-cream font-medium">Mitcham Town Centre, London, UK</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-gold/20 border border-brand-gold flex items-center justify-center text-brand-gold flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-brand-gold uppercase font-bold tracking-wider">Telephone</h4>
+                                <a href="tel:07927536062" class="text-base text-brand-cream font-medium hover:text-brand-gold transition-colors">07927536062</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-gold/20 border border-brand-gold flex items-center justify-center text-brand-gold flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-brand-gold uppercase font-bold tracking-wider">Email</h4>
+                                <a href="mailto:kokohous@gmail.com" class="text-base text-brand-cream font-medium hover:text-brand-gold transition-colors">kokohous@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-3xl border-2 border-brand-gold/40 h-80 sm:h-96 overflow-hidden relative shadow-md flex items-center justify-center p-6 text-center">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://ik.imagekit.io/kingstormtech/VC%20services/koko/tom-brown2.jpg');"></div>
+                        <div class="relative z-10 bg-white/95 backdrop-blur-md p-6 rounded-2xl border border-brand-gold max-w-md shadow-xl">
+                            <i class="fa-solid fa-location-dot text-3xl text-brand-rust mb-2"></i>
+                            <h4 class="font-heading font-bold text-xl text-brand-dark">Mitcham Town Centre</h4>
+                            <p class="text-xs text-gray-600 mt-1">Visit us for authentic West African breakfast delicacies.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white pt-12 pb-8 border-t-4 border-brand-gold relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-brand-cream/10">
+
+                <div class="md:col-span-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="https://ik.imagekit.io/kingstormtech/VC%20services/koko/logo.jpg" alt="Koko House Logo" class="h-12 w-auto rounded-lg object-contain bg-white p-1">
+                    </div>
+                    <p class="text-xs text-brand-gold uppercase tracking-wider font-bold">Authentic Ghanaian Breakfast & More</p>
+                    <p class="text-sm text-brand-cream/75 leading-relaxed max-w-sm">
+                        No preservatives &bull; Natural spices &bull; Home made &bull; African street breakfast experience in Mitcham.
+                    </p>
+                    <p class="font-accent text-2xl text-brand-gold pt-1">A taste of home</p>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-heading font-bold text-brand-gold text-sm uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-brand-cream/80 font-medium">
+                        <li><a href="#home" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="#menu" class="hover:text-brand-gold transition-colors">Offerings Showcase</a></li>
+                        <li><a href="#usps" class="hover:text-brand-gold transition-colors">Why Koko House</a></li>
+                        <li><a href="#story" class="hover:text-brand-gold transition-colors">Our Story</a></li>
+                        <li><a href="#contact" class="hover:text-brand-gold transition-colors">Location</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-3 space-y-3 bg-brand-gold/10 p-5 rounded-2xl border border-brand-gold/30">
+                    <h4 class="font-heading font-bold text-brand-gold text-sm uppercase tracking-wider">Opening Schedule</h4>
+                    <div class="space-y-2 text-xs text-brand-cream/90">
+                        <p class="text-brand-gold font-bold text-sm"><i class="fa-solid fa-calendar-check mr-2"></i> WEEKENDS ONLY</p>
+                        <p class="text-sm font-semibold text-white"><i class="fa-solid fa-clock text-brand-gold mr-2"></i> Saturday</p>
+                        <p class="text-xs text-brand-gold font-bold">7:00am &ndash; 12:00pm</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-cream/60 gap-4">
+                <p>&copy; 2026 KOKO HOUSE. All rights reserved.</p>
+                <div class="text-brand-gold font-semibold tracking-wide">
+                    Developed by <span class="text-white font-bold underline decoration-brand-gold underline-offset-4">Kingstorm Technologies</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTTOM STRIP -->
+    <div class="pattern-banner w-full"></div>
+
+    <!-- JAVASCRIPT FOR FILTERING & DROPDOWN BEHAVIOR -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Porridge Dropdown Toggle Logic
+        function togglePorridgeDropdown(e) {
+            e.stopPropagation();
+            const porridgeMenu = document.getElementById('porridge-menu');
+            const porridgeArrow = document.getElementById('porridge-arrow');
+            
+            porridgeMenu.classList.toggle('hidden');
+            porridgeArrow.classList.toggle('rotate-180');
+        }
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function(e) {
+            const container = document.getElementById('porridge-dropdown-container');
+            const porridgeMenu = document.getElementById('porridge-menu');
+            const porridgeArrow = document.getElementById('porridge-arrow');
+            if (container && !container.contains(e.target)) {
+                porridgeMenu.classList.add('hidden');
+                porridgeArrow.classList.remove('rotate-180');
+            }
+        });
+
+        // Main Filtering Logic
+        function selectFilter(category, labelName) {
+            const cards = document.querySelectorAll('.menu-card');
+            const filterBtns = document.querySelectorAll('.menu-filter-btn');
+            const porridgeMenu = document.getElementById('porridge-menu');
+            const porridgeArrow = document.getElementById('porridge-arrow');
+            const badge = document.getElementById('active-category-badge');
+            const label = document.getElementById('current-filter-label');
+
+            // Hide Porridge Dropdown
+            if(porridgeMenu) porridgeMenu.classList.add('hidden');
+            if(porridgeArrow) porridgeArrow.classList.remove('rotate-180');
+
+            // Reset Main Button Styles
+            filterBtns.forEach(btn => {
+                btn.classList.remove('active', 'bg-brand-dark', 'text-brand-gold');
+                btn.classList.add('bg-brand-cream', 'text-brand-dark');
+            });
+
+            // Highlight Active Button or Parent Dropdown
+            if (category === 'all') {
+                document.getElementById('btn-all').classList.add('active', 'bg-brand-dark', 'text-brand-gold');
+                document.getElementById('btn-all').classList.remove('bg-brand-cream', 'text-brand-dark');
+                badge.classList.add('hidden');
+            } else if (category === 'puffpuff') {
+                document.getElementById('btn-puffpuff').classList.add('active', 'bg-brand-dark', 'text-brand-gold');
+                document.getElementById('btn-puffpuff').classList.remove('bg-brand-cream', 'text-brand-dark');
+                badge.classList.add('hidden');
+            } else if (category === 'koose') {
+                document.getElementById('btn-koose').classList.add('active', 'bg-brand-dark', 'text-brand-gold');
+                document.getElementById('btn-koose').classList.remove('bg-brand-cream', 'text-brand-dark');
+                badge.classList.add('hidden');
+            } else if (category === 'toppings') {
+                document.getElementById('btn-toppings').classList.add('active', 'bg-brand-dark', 'text-brand-gold');
+                document.getElementById('btn-toppings').classList.remove('bg-brand-cream', 'text-brand-dark');
+                badge.classList.add('hidden');
+            } else {
+                // If it's a Porridge Subcategory
+                document.getElementById('btn-porridge').classList.add('active', 'bg-brand-dark', 'text-brand-gold');
+                document.getElementById('btn-porridge').classList.remove('bg-brand-cream', 'text-brand-dark');
+                if(labelName) {
+                    label.innerText = labelName;
+                    badge.classList.remove('hidden');
+                }
+            }
+
+            // Filter Card Visibility
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                } else if (category === 'porridge') {
+                    if (card.classList.contains('porridge')) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                } else {
+                    if (card.classList.contains(category)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
